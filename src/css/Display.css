@@ -1,0 +1,94 @@
+:root {
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --soft: #f8fafc;
+  --primary: #2563eb;
+}
+
+/* Container matches Form card */
+.result-container {
+  background: var(--card);
+  color: var(--text);
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px rgba(17, 24, 39, 0.08),
+    0 2px 8px rgba(17, 24, 39, 0.06);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Title */
+.result-container h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Empty state */
+.result-empty {
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Two-column layout inside results */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1rem;
+}
+
+.column1, .column2 { min-width: 0; }
+
+/* Card sections inside result */
+.card {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.card-label {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: .25rem;
+}
+
+.card-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.card-body { font-size: 0.95rem; }
+
+/* JSON box */
+.result-json {
+  background: #111827;
+  color: #f9fafb;
+  padding: .75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  overflow: auto;
+  white-space: pre;
+  max-height: 45vh;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}

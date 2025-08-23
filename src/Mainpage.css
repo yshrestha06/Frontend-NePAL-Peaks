@@ -1,0 +1,30 @@
+.mainpage{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  justify-content: center;  
+  align-items: center;
+}
+
+.main {
+  display: flex;            
+  flex-direction: row;
+  gap: 16px;
+  width: 95%;
+  height: 95%;
+  position: relative;
+}
+
+.reports{
+  position: relative;
+  height: 100%;
+  width: 66%;
+
+}
+
+.userInput{
+  position: relative;
+  height: 100%;
+  width: 33%;
+}

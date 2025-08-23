@@ -1,0 +1,158 @@
+/* ---------- Theme tokens ---------- */
+:root {
+  --bg: #0b1020;          /* page bg (if you're centering a card) */
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-700: #1e40af;
+  --ring: rgba(37, 99, 235, 0.28);
+  --border: #e5e7eb;
+  --soft: #f8fafc;
+}
+
+/* ---------- Card container (short + centered look) ---------- */
+.form-container.form-compact {
+  background: var(--card);
+  color: var(--text);
+  padding: 1.1rem 1.2rem;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px rgba(17, 24, 39, 0.08),
+    0 2px 8px rgba(17, 24, 39, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  max-width: 760px;       /* keeps things short and tight */
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+/* ---------- Titles ---------- */
+.form-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: .2px;
+  margin: 0 0 .25rem 0;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin: .5rem 0 .25rem 0;
+}
+
+/* ---------- Grid (two columns, compact) ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .65rem .9rem;
+}
+
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: 1 / -1; }
+
+.form-group label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: .25rem;
+}
+
+/* ---------- Inputs / selects / file ---------- */
+.form-input,
+.form-select,
+.fh-button,
+.form-file {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 10px;
+  padding: .48rem .65rem;
+  font-size: .93rem;
+  transition: box-shadow .15s ease, border-color .15s ease, transform .02s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.fh-button:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* file input nicer (still native) */
+.form-file {
+  background: var(--soft);
+  cursor: pointer;
+}
+.form-file:hover { background: #eef2ff; }
+
+/* ---------- Primary button ---------- */
+.form-actions { text-align: right; margin-top: .4rem; }
+
+.form-button {
+  appearance: none;
+  background: linear-gradient(180deg, var(--primary), var(--primary-700));
+  color: #fff;
+  padding: .48rem 1.15rem;
+  font-size: .95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, .25);
+  transition: transform .05s ease, box-shadow .2s ease, filter .2s ease;
+}
+.form-button:hover:not(:disabled) { filter: brightness(1.05); }
+.form-button:active:not(:disabled) { transform: translateY(1px); }
+.form-button:disabled { opacity: .55; cursor: not-allowed; box-shadow: none; }
+
+/* ---------- Family History dropdown ---------- */
+.fh-dropdown { position: relative; }
+
+.fh-button {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.fh-caret { transition: transform .15s ease; opacity: .7; }
+.fh-caret.open { transform: rotate(180deg); }
+
+.fh-panel {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow:
+    0 18px 42px rgba(17,24,39,.14),
+    0 4px 12px rgba(17,24,39,.08);
+  padding: .5rem;
+  z-index: 30;
+  max-height: 38vh;       /* compact list */
+  overflow: auto;
+}
+
+.fh-option {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .35rem .45rem;
+  border-radius: 8px;
+  cursor: pointer; user-select: none;
+  font-size: .92rem;
+}
+.fh-option:hover { background: var(--soft); }
+
+.fh-actions {
+  display: flex; justify-content: flex-end; gap: .5rem; margin-top: .35rem;
+}
+.fh-action {
+  background: #f3f4f6; border: 1px solid var(--border);
+  border-radius: 8px; padding: .38rem .7rem; font-size: .85rem; cursor: pointer;
+}
+.fh-action.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* ---------- Compact responsiveness ---------- */
+@media (max-width: 820px) {
+  .form-container.form-compact { max-width: 92vw; }
+  .form-grid { grid-template-columns: 1fr; }
+}
